@@ -1,4 +1,4 @@
-package com.hackathon.sailors.pregnancyaggregate.models;
+package com.hackathon.sailors.pregnancyaggregate.models.dao;
 
 public class LoginDetails {
     private String username;
