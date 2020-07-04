@@ -1,4 +1,4 @@
-package com.hackathon.sailors.pregnancyaggregate.dashboard;
+package com.hackathon.sailors.pregnancyaggregate.web.dashboard;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

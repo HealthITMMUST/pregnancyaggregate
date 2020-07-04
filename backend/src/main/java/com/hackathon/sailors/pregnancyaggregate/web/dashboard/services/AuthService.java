@@ -1,4 +1,4 @@
-package com.hackathon.sailors.pregnancyaggregate.dashboard.services;
+package com.hackathon.sailors.pregnancyaggregate.web.dashboard.services;
 
 
 import org.springframework.stereotype.Service;
