@@ -13,8 +13,17 @@ public class PregnantMotherData {
     private String fullName;
     private String age;
     private String village;
+    private String numberOfCildren;
 
     public PregnantMotherData() {
+    }
+
+    public String getNumberOfCildren() {
+        return numberOfCildren;
+    }
+
+    public void setNumberOfCildren(String numberOfCildren) {
+        this.numberOfCildren = numberOfCildren;
     }
 
     public int getId() {
