@@ -3,12 +3,10 @@ package com.hackathon.sailors.pregnancyaggregate.api.controllers;
 import com.hackathon.sailors.pregnancyaggregate.api.services.ResetPassService;
 import com.hackathon.sailors.pregnancyaggregate.models.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/api")
+@RestController
 public class PasswordResetController {
 
     @Autowired
