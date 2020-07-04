@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" >
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!--    <link rel="stylesheet" href="../static/css/gwazastyles.css">-->
+    <link rel="stylesheet" href="../static/css/gwazastyles.css" th:href="@{css/gwazastyles.css}">
+    <!--    font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Cms</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li> <a href="/contacts" class="btn btn-info">Contacts</a></li>
+                <li> <a href="/events" class="btn btn-info">Events</a></li>
+<!--                <li>-->
+<!--                    <form class="form-inline" action="/action_page">-->
+<!--                        <div class="form-group search">-->
+<!--                            <input  class="form-control" type="text" placeholder="Search.." />-->
+<!--                        </div>-->
+
+<!--                    </form>-->
+
+<!--                </li>-->
+<!--                <li class="dropdown">-->
+<!--                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span><i class="fa fa-user-circle"></i></span>-->
+<!--                        <span class="caret"></span></a>-->
+<!--                    <ul class="dropdown-menu" style="background-color:powderblue;">-->
+<!--                        <li> Username</li>-->
+<!--                        <li> Email</li>-->
+<!--                        <li><a th:href="@{/logout}">logout</a></li>-->
+<!--                    </ul>-->
+<!--                </li>-->
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<!--==========
+END OF NAVBAR
+ =======-->
+<div th:if="${createAccountMessage}"  class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <p class="alert alert-success alert-dismissible"><strong>Success!</strong> Account created Successfully</p>
+</div>
+<div th:if="${updateSuccess}"  class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <p class="alert alert-success alert-dismissible"><strong>Success</strong> Payment Info updated successfully</p>
+</div>
+<div th:if="${updateFailed}"  class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <p class="alert alert-success alert-dismissible"><strong>Error!</strong> The bussiness Id does not exist in our system</p>
+</div>
+<div class="container">
+    <div class="col-md-5">
+<!--            <h3>Create A User Account</h3>-->
+<!--            <div>-->
+<!--                <form action="/register" th:action="@{/register}"  method="POST">-->
+<!--                    <p class="error" th:text="${wrongCredentials}"></p>-->
+
+<!--                    &lt;!&ndash;                    <div class="form-group">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        <input type="text" class="form-control" id="bussinessId" name="bussinessId" value="" placeholder="id">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--                    <div class="form-group">-->
+<!--                        <input type="text" class="form-control" id="username" name="bussinessName" placeholder=" Name" required>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <input type="email" class="form-control" id="email" name="bussinessEmail" placeholder="email" required>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+
+<!--                        <input type="password" class="form-control" id="pwd" name="bussinessPassword" placeholder="password" required>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash;                    <div class="form-group">&ndash;&gt;-->
+
+<!--                    &lt;!&ndash;                        <input type="password" class="form-control" id="cpwd" name="confirmPassword" placeholder="Confirm password" required>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="checkbox">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <label><input type="checkbox"  required> Accept Terms And Conditions</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+
+<!--                    <button type="submit" class="btn btn-info">Create Account</button>-->
+
+<!--                </form>-->
+
+<!--            </div>-->
+
+
+    </div>
+    <div class="col-md-7">
+        <h3>Existing Users</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th> Id</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${bussinessList.empty}">
+                <td colspan="2"> No Users Available </td>
+            </tr>
+
+            <tr th:each="bussiness : ${bussinessList}">
+                <td th:text="${bussiness.bussinessId}" > </td>
+                <td th:text="${bussiness.bussinessName}" ></td>
+                <td th:text="${bussiness.bussinessEmail}" ></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">View User Details</button>
+
+        <!-- Modal -->
+<!--        <div id="myModal" class="modal fade" role="dialog" >-->
+<!--            <div class="modal-dialog">-->
+
+<!--                &lt;!&ndash; Modal content&ndash;&gt;-->
+<!--                <div class="modal-content" >-->
+<!--                    <div class="modal-header">-->
+<!--                        <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--                        <H2>Update User Data</H2>-->
+
+<!--                    </div>-->
+<!--                    <div class="modal-body" style="background-color:#04665f;">-->
+<!--                                <form action="/update-bussiness-info" th:action="@{/update-bussiness-info}"  method="post">-->
+
+<!--                                    &lt;!&ndash; ROW ONE &ndash;&gt;-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-md-12">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="p_id" name="bussinessId" placeholder="Bussiness Id" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-md-8">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="name" name="apiKey" placeholder="api Key" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-md-4">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="dateOfExams" name="apiSecret" placeholder="api Secret" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-md-12">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="passkey" name="bussinessPassKey" placeholder="Pass Key" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-md-8">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="f" name="callbackUrl" placeholder="callbackUrl" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-md-4">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="clientAdrress" name="bussinessShortCode" placeholder="bussiness ShortCode / paybill" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-md-8">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="oculoVisualComplain" name="transactionType" placeholder="transaction Type" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-md-4">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="age" name="accountRefference" placeholder="account Refference" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-md-12">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="chiefComplain" name="transactionDescription" placeholder="transactionDescription" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="row">-->
+
+<!--                                    </div>-->
+<!--                                    <button type="submit" class="btn btn-info">Submit</button>-->
+<!--                                </form>-->
+
+<!--                    </div>-->
+<!--                    <div class="modal-footer">-->
+<!--                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+
+    </div>
+</div>
+
+
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</body>
+</html>
