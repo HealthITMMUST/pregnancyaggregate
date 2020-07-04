@@ -1,9 +1,9 @@
 package com.hackathon.sailors.pregnancyaggregate.api.controllers;
 
 import com.hackathon.sailors.pregnancyaggregate.api.services.LoginService;
-import com.hackathon.sailors.pregnancyaggregate.models.dao.LoginDetails;
-import com.hackathon.sailors.pregnancyaggregate.models.dao.User;
-import com.hackathon.sailors.pregnancyaggregate.models.dto.ApiResponse;
+import com.hackathon.sailors.pregnancyaggregate.models.LoginDetails;
+import com.hackathon.sailors.pregnancyaggregate.models.User;
+import com.hackathon.sailors.pregnancyaggregate.models.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

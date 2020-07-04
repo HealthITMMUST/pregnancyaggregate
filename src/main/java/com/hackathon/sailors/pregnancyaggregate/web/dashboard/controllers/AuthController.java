@@ -1,8 +1,8 @@
 package com.hackathon.sailors.pregnancyaggregate.web.dashboard.controllers;
 
 import com.hackathon.sailors.pregnancyaggregate.web.dashboard.services.AuthService;
-import com.hackathon.sailors.pregnancyaggregate.models.dao.LoginDetails;
-import com.hackathon.sailors.pregnancyaggregate.models.dao.User;
+import com.hackathon.sailors.pregnancyaggregate.models.LoginDetails;
+import com.hackathon.sailors.pregnancyaggregate.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;

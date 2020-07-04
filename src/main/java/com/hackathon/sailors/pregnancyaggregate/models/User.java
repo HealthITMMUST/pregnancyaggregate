@@ -1,4 +1,4 @@
-package com.hackathon.sailors.pregnancyaggregate.models.dao;
+package com.hackathon.sailors.pregnancyaggregate.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

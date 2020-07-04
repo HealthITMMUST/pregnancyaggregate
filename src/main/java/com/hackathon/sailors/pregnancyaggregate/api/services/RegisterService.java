@@ -1,6 +1,6 @@
 package com.hackathon.sailors.pregnancyaggregate.api.services;
 
-import com.hackathon.sailors.pregnancyaggregate.models.dao.User;
+import com.hackathon.sailors.pregnancyaggregate.models.User;
 import com.hackathon.sailors.pregnancyaggregate.api.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

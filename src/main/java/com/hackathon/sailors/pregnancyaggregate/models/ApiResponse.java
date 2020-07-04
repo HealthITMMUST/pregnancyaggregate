@@ -1,4 +1,4 @@
-package com.hackathon.sailors.pregnancyaggregate.models.dto;
+package com.hackathon.sailors.pregnancyaggregate.models;
 
 public class ApiResponse<T> {
 
