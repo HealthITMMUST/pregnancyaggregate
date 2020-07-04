@@ -4,6 +4,7 @@ import com.hackathon.sailors.pregnancyaggregate.api.services.RegisterService;
 import com.hackathon.sailors.pregnancyaggregate.models.dao.User;
 import com.hackathon.sailors.pregnancyaggregate.models.dto.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +14,7 @@ public class RegisterController {
     @Autowired
     private RegisterService registerService;
 
+    @PostMapping("/register")
     public ApiResponse<User> registerUser(@RequestBody User user) {
         User createdUser = registerService.createUser(user);
         ApiResponse<User> response = new ApiResponse<>();
