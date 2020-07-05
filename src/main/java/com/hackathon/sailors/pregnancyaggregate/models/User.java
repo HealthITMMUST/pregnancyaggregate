@@ -8,8 +8,6 @@ import javax.persistence.Id;
 public class User {
 
     @Id
-    @GeneratedValue
-    private int id;
     private String name;
     private String email;
     private String password;
@@ -36,14 +34,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getEmail() {
