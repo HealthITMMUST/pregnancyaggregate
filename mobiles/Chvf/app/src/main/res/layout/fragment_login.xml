@@ -39,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <EditText
-            android:id="@+id/mechant_code"
+            android:id="@+id/user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="UserName"
@@ -48,10 +48,11 @@
             android:background="@drawable/ed_white_background_"/>
 
         <EditText
-            android:id="@+id/mechant_pass"
+            android:id="@+id/user_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:inputType="textPassword"
             android:hint="Password"
             android:padding="10dp"
             android:background="@drawable/ed_white_background_"/>

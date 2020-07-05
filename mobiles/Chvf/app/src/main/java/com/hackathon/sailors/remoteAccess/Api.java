@@ -1,15 +1,23 @@
 package com.hackathon.sailors.remoteAccess;
 
 
+import com.hackathon.sailors.models.ApiResponse;
+import com.hackathon.sailors.models.LoginDetails;
+import com.hackathon.sailors.models.User;
+
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.POST;
+
 public interface Api {
 
-//    @POST("/api/users")
-//    Call<Object> registerUser(@Body SignUpModel signUpModel);
-//
-//
-//    @POST("/api/session")
-//    Call<Object> login(@Body Session session);
-//
+    @POST("/api/register")
+    Call<ApiResponse<User>> registerUser(@Body User user);
+
+
+    @POST("/api/login")
+    Call<ApiResponse<User>> login(@Body LoginDetails loginDetails);
+
 //    @GET("/api/businesses?featured=true")
 //    Call<Data> getFeaturedBussinesses();
 //
