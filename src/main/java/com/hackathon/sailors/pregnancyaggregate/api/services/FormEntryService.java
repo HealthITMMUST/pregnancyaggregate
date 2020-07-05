@@ -6,6 +6,8 @@ import com.hackathon.sailors.pregnancyaggregate.models.PregnantMotherData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FormEntryService {
 
@@ -14,5 +16,9 @@ public class FormEntryService {
 
     public DataEntryForm postData(DataEntryForm dataEntryForm) {
         return formsRepository.save(dataEntryForm);
+    }
+
+    public List<DataEntryForm> getAllForms(){
+       return  formsRepository.findAll();
     }
 }
