@@ -39,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <EditText
-            android:id="@+id/mechant_code"
+            android:id="@+id/user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="UserName"
@@ -48,34 +48,47 @@
             android:background="@drawable/ed_white_background_"/>
 
         <EditText
-            android:id="@+id/mechant_pass"
+            android:id="@+id/user_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:background="@drawable/ed_white_background_"/>
+
+        <EditText
+            android:id="@+id/user_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:inputType="textPassword"
             android:hint="Password"
             android:padding="10dp"
             android:background="@drawable/ed_white_background_"/>
 
-        <TextView
+        <EditText
+            android:id="@+id/user_confirm_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="forgort your password"
-            android:textStyle="bold"
-            android:visibility="invisible"
-            android:fontFamily="sans-serif-black"
-            android:gravity="right"
-            android:layout_margin="20dp"/>
+            android:layout_marginTop="20dp"
+            android:inputType="textPassword"
+            android:hint="Confirm Password"
+            android:padding="10dp"
+            android:background="@drawable/ed_white_background_"/>
 
         <Button
-            android:id="@+id/login_bt"
+            android:id="@+id/sign_up_bt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SignUp"
             android:background="@drawable/button_solid_blue_bg"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="30dp"
             android:textColor="#fff"/>
 
         <Button
+            android:id="@+id/login_bt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login Instead"

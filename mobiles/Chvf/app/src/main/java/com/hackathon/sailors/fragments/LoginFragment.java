@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.hackathon.sailors.R;
 import com.hackathon.sailors.activities.Home;
@@ -50,8 +52,16 @@ public class LoginFragment extends Fragment {
         progressDialog.setMessage("verifying Credentials...");
         progressDialog.setCancelable(false);
         view.findViewById(R.id.login_bt).setOnClickListener(v -> login());
+        view.findViewById(R.id.sign_up_bt).setOnClickListener(v -> openSignUp());
         
         return view;
+    }
+
+    private void openSignUp() {
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.replace(R.id.auth_layout_holder, new SignUpFragment());
+        transaction.commit();
     }
 
     private void login() {
@@ -84,7 +94,7 @@ public class LoginFragment extends Fragment {
                 }else{
 
                     progressDialog.dismiss();
-                    Toast.makeText(getContext(), "there was an error please try again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "there was an error please try again"+response.code(), Toast.LENGTH_SHORT).show();
                 }
 
             }
