@@ -1,8 +1,8 @@
 package com.hackathon.sailors.pregnancyaggregate.api.controllers;
 
-import com.hackathon.sailors.pregnancyaggregate.api.services.PregnantMotherDataEntryService;
+import com.hackathon.sailors.pregnancyaggregate.api.services.FormEntryService;
 import com.hackathon.sailors.pregnancyaggregate.models.ApiResponse;
-import com.hackathon.sailors.pregnancyaggregate.models.PregnantMotherData;
+import com.hackathon.sailors.pregnancyaggregate.models.DataEntryForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-public class PrenantMotherDataEntryController {
+public class DataEntryFormControllerController {
 
     @Autowired
-    private PregnantMotherDataEntryService pregnantMotherDataEntryService;
+    private FormEntryService formEntryService;
 
-    @PostMapping("/pregnancy")
-    public ApiResponse<Void> postData(@RequestBody PregnantMotherData pregnantMotherData){
-        PregnantMotherData pregnantMotherData1 = pregnantMotherDataEntryService.postData(pregnantMotherData);
+    @PostMapping("/form")
+    public ApiResponse<Void> postData(@RequestBody DataEntryForm dataEntryForm){
+        DataEntryForm dataEntryForm1 = formEntryService.postData(dataEntryForm);
         ApiResponse<Void> response = new ApiResponse<>();
 
-        if(pregnantMotherData1 != null){
+        if(dataEntryForm1 != null){
             response.setResultCode(0);
             response.setResultDescription("Data posted successfully");
 

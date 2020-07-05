@@ -2,6 +2,7 @@ package com.hackathon.sailors.remoteAccess;
 
 
 import com.hackathon.sailors.models.ApiResponse;
+import com.hackathon.sailors.models.DataEntryForm;
 import com.hackathon.sailors.models.LoginDetails;
 import com.hackathon.sailors.models.User;
 
@@ -17,6 +18,9 @@ public interface Api {
 
     @POST("/api/login")
     Call<ApiResponse<User>> login(@Body LoginDetails loginDetails);
+
+    @POST("/api/form")
+    Call<ApiResponse<Void>> postData(@Body  DataEntryForm form);
 
 //    @GET("/api/businesses?featured=true")
 //    Call<Data> getFeaturedBussinesses();

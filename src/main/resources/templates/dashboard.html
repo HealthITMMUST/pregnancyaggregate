@@ -68,7 +68,7 @@ END OF NAVBAR
 </div>
 <div class="container">
     <div class="col-md-5">
-<!--            <h3>Create A User Account</h3>-->
+<!--            <h3>Available Users</h3>-->
 <!--            <div>-->
 <!--                <form action="/register" th:action="@{/register}"  method="POST">-->
 <!--                    <p class="error" th:text="${wrongCredentials}"></p>-->
@@ -102,123 +102,123 @@ END OF NAVBAR
 
 
     </div>
-<!--    <div class="col-md-7">-->
-<!--        <h3>Existing Users</h3>-->
-<!--        <table class="table">-->
-<!--            <thead>-->
-<!--            <tr>-->
-<!--                <th> Id</th>-->
-<!--                <th>Name</th>-->
-<!--                <th>Email</th>-->
-<!--            </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--            <tr th:if="${bussinessList.empty}">-->
-<!--                <td colspan="2"> No Users Available </td>-->
-<!--            </tr>-->
+    <div class="col-md-7">
+        <h3>Submitted data</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Pregnancy Stage</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${bussinessList.empty}">
+                <td colspan="2"> No data available </td>
+            </tr>
 
-<!--            <tr th:each="bussiness : ${bussinessList}">-->
-<!--                <td th:text="${bussiness.bussinessId}" > </td>-->
-<!--                <td th:text="${bussiness.bussinessName}" ></td>-->
-<!--                <td th:text="${bussiness.bussinessEmail}" ></td>-->
-<!--            </tr>-->
-<!--            </tbody>-->
-<!--        </table>-->
+            <tr th:each="form : ${forms}">
+                <td th:text="${form.name}" > </td>
+                <td th:text="${form.phoneNumber}" ></td>
+                <td th:text="${form.pregnancyStage}" ></td>
+            </tr>
+            </tbody>
+        </table>
 
-<!--        &lt;!&ndash; Trigger the modal with a button &ndash;&gt;-->
-<!--        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">View User Details</button>-->
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">View User Details</button>
 
-<!--        &lt;!&ndash; Modal &ndash;&gt;-->
-<!--&lt;!&ndash;        <div id="myModal" class="modal fade" role="dialog" >&ndash;&gt;-->
-<!--&lt;!&ndash;            <div class="modal-dialog">&ndash;&gt;-->
+        <!-- Modal -->
+<!--        <div id="myModal" class="modal fade" role="dialog" >-->
+<!--            <div class="modal-dialog">-->
 
-<!--&lt;!&ndash;                &lt;!&ndash; Modal content&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="modal-content" >&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="modal-header">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button type="button" class="close" data-dismiss="modal">&times;</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <H2>Update User Data</H2>&ndash;&gt;-->
+<!--                &lt;!&ndash; Modal content&ndash;&gt;-->
+<!--                <div class="modal-content" >-->
+<!--                    <div class="modal-header">-->
+<!--                        <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--                        <H2>Update User Data</H2>-->
 
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="modal-body" style="background-color:#04665f;">&ndash;&gt;-->
-<!--&lt;!&ndash;                                <form action="/update-bussiness-info" th:action="@{/update-bussiness-info}"  method="post">&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div class="modal-body" style="background-color:#04665f;">-->
+<!--                                <form action="/update-bussiness-info" th:action="@{/update-bussiness-info}"  method="post">-->
 
-<!--&lt;!&ndash;                                    &lt;!&ndash; ROW ONE &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="col-md-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <input type="text" class="form-control" id="p_id" name="bussinessId" placeholder="Bussiness Id" required>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="col-md-8">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <input type="text" class="form-control" id="name" name="apiKey" placeholder="api Key" required>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="col-md-4">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <input type="text" class="form-control" id="dateOfExams" name="apiSecret" placeholder="api Secret" required>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="col-md-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <input type="text" class="form-control" id="passkey" name="bussinessPassKey" placeholder="Pass Key" required>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--                                    &lt;!&ndash; ROW ONE &ndash;&gt;-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-md-12">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="p_id" name="bussinessId" placeholder="Bussiness Id" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-md-8">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="name" name="apiKey" placeholder="api Key" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-md-4">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="dateOfExams" name="apiSecret" placeholder="api Secret" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-md-12">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="passkey" name="bussinessPassKey" placeholder="Pass Key" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
 
-<!--&lt;!&ndash;                                    <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="col-md-8">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <input type="text" class="form-control" id="f" name="callbackUrl" placeholder="callbackUrl" required>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="col-md-4">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <input type="text" class="form-control" id="clientAdrress" name="bussinessShortCode" placeholder="bussiness ShortCode / paybill" required>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-md-8">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="f" name="callbackUrl" placeholder="callbackUrl" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-md-4">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="clientAdrress" name="bussinessShortCode" placeholder="bussiness ShortCode / paybill" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
 
-<!--&lt;!&ndash;                                    <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="col-md-8">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <input type="text" class="form-control" id="oculoVisualComplain" name="transactionType" placeholder="transaction Type" required>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="col-md-4">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <input type="text" class="form-control" id="age" name="accountRefference" placeholder="account Refference" required>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-md-8">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="oculoVisualComplain" name="transactionType" placeholder="transaction Type" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-md-4">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="age" name="accountRefference" placeholder="account Refference" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
 
-<!--&lt;!&ndash;                                    <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <div class="col-md-12">&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <div class="form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;                                                <input type="text" class="form-control" id="chiefComplain" name="transactionDescription" placeholder="transactionDescription" required>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <div class="row">&ndash;&gt;-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-md-12">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="text" class="form-control" id="chiefComplain" name="transactionDescription" placeholder="transactionDescription" required>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="row">-->
 
-<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    <button type="submit" class="btn btn-info">Submit</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                                </form>&ndash;&gt;-->
+<!--                                    </div>-->
+<!--                                    <button type="submit" class="btn btn-info">Submit</button>-->
+<!--                                </form>-->
 
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="modal-footer">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div class="modal-footer">-->
+<!--                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>-->
+<!--                    </div>-->
+<!--                </div>-->
 
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
 
-<!--    </div>-->
+    </div>
 </div>
 
 
