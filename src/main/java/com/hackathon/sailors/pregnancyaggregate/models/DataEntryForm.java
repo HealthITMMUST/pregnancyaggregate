@@ -8,7 +8,11 @@ import java.io.Serializable;
 public class DataEntryForm implements Serializable {
     @Id
     private String phoneNumber;
-    private String name,pregnancyStage,age,location,district;
+    private String name;
+    private String pregnancyStage;
+    private String age;
+    private String location;
+    private String district;
 
     public DataEntryForm() {
     }
