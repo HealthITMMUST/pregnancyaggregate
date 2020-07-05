@@ -1,10 +1,12 @@
 package com.hackathon.sailors.pregnancyaggregate.models;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
 @Table(name="form_data")
+@Entity
 public class DataEntryForm implements Serializable {
     @Id
     private String phoneNumber;
@@ -73,4 +75,6 @@ public class DataEntryForm implements Serializable {
     public void setDistrict(String district) {
         this.district = district;
     }
+
+
 }
