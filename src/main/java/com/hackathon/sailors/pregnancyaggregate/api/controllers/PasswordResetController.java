@@ -20,7 +20,6 @@ public class PasswordResetController {
         response.setData(email);
         response.setResultCode(0);
         response.setData("please check your email for password reset instructions");
-
         return response;
     }
 }
