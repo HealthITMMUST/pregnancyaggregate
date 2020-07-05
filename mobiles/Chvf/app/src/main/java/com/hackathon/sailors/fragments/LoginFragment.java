@@ -88,13 +88,13 @@ public class LoginFragment extends Fragment {
         RetrofitServiceInstance.getApi().login(loginDetails).enqueue(new Callback<ApiResponse<User>>() {
             @Override
             public void onResponse(Call<ApiResponse<User>> call, Response<ApiResponse<User>> response) {
-                if(response.isSuccessful() && response.body() != null){
+                if(response.body().getData() != null){
                     Data.setSidToken(getActivity().getSharedPreferences(SplashScreen.PREFS_SID, SplashScreen.MODE_PRIVATE), response.body().getData().getName());
                     showHome();
                 }else{
 
                     progressDialog.dismiss();
-                    Toast.makeText(getContext(), "there was an error please try again"+response.code(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "there was an error please try again", Toast.LENGTH_SHORT).show();
                 }
 
             }
