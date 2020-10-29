@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class DataEntryFormControllerController {
 
-    @Autowired
+
     private FormEntryService formEntryService;
+
+    public DataEntryFormControllerController(FormEntryService formEntryService) {
+        this.formEntryService = formEntryService;
+    }
 
     @PostMapping("/form")
     public ApiResponse<Void> postData(@RequestBody DataEntryForm dataEntryForm){
