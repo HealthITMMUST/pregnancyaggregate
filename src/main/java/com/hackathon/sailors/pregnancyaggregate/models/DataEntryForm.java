@@ -15,17 +15,53 @@ public class DataEntryForm implements Serializable {
     private String age;
     private String location;
     private String district;
+    private String village;
+    private String edd;
+    private String linkFacility;
+    private String linkCu;
+    private String ContactCHV;
 
     public DataEntryForm() {
     }
 
-    public DataEntryForm(String name, String phoneNumber, String pregnancyStage, String age, String location, String district) {
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.pregnancyStage = pregnancyStage;
-        this.age = age;
-        this.location = location;
-        this.district = district;
+    public String getVillage() {
+        return village;
+    }
+
+    public void setVillage(String village) {
+        this.village = village;
+    }
+
+    public String getEdd() {
+        return edd;
+    }
+
+    public void setEdd(String edd) {
+        this.edd = edd;
+    }
+
+    public String getLinkFacility() {
+        return linkFacility;
+    }
+
+    public void setLinkFacility(String linkFacility) {
+        this.linkFacility = linkFacility;
+    }
+
+    public String getLinkCu() {
+        return linkCu;
+    }
+
+    public void setLinkCu(String linkCu) {
+        this.linkCu = linkCu;
+    }
+
+    public String getContactCHV() {
+        return ContactCHV;
+    }
+
+    public void setContactCHV(String contactCHV) {
+        ContactCHV = contactCHV;
     }
 
     public String getName() {
